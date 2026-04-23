@@ -8,7 +8,7 @@ class Module
         target = to.is_a?(::Symbol) || to.is_a?(::String) ? send(to) : to
         return nil if target.nil? && allow_nil
 
-        target.send(method_name, *args, **opts, &block)
+        target.__send__(method_name, *args, **opts, &block)
       end
     end
   end
